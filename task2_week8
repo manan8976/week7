@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+#define SIZE 10  // Size of the transaction array
+#define MAX_INVALID 10  // Maximum number of invalid transactions
+
+// Function prototypes
+void process_transactions(int transactions[], int length, int *balance, int tobeprocessed[], int *invalid_count);
+
+int main() {
+    // Initial balance is 1000 AED
+    int balance = 1000;
+    
+    // Array of transactions (positive for deposits, negative for withdrawals)
+    int transactions[SIZE] = {200, -500, -1500, 300, -200, -100, 400, -50, 100, -2000};
+    
+    // Array to store invalid transactions (withdrawals exceeding balance)
+    int tobeprocessed[MAX_INVALID];
+    int invalid_count = 0;  // Counter for invalid transactions
+    
+    // Process the transactions
+    process_transactions(transactions, SIZE, &balance, tobeprocessed, &invalid_count);
+    
+    // Print the final balance
+    printf("Final Balance: %d AED\n", balance);
+    
+    // Print invalid transactions
+    if (invalid_count > 0) {
+        printf("Invalid transactions (withdrawals exceeding balance):\n");
+        for (int i = 0; i < invalid_count; i++) {
+            printf("Transaction %d: %d AED\n", i + 1, tobeprocessed[i]);
+        }
+    } else {
+        printf("No invalid transactions.\n");
+    }
+
+    return 0;
+}
+
+
