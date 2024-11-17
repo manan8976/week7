@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+#define NUM_TEAMS 5
+#define SQUAD_SIZE 20
+
+typedef struct {
+    char name[25];
+    int kitNumber;
+    char club[30];
+    struct {
+        int day, month, year;
+    } age;
+    char position[20];
+} player_t;
+
+typedef struct {
+    char name[20];
+    player_t players[SQUAD_SIZE];
+    int activeSize;
+} team_t;
+
+// Function prototypes
+void display_menu();
+void enroll_club(team_t teams[], int* numTeams);
+void add_player(team_t* team);
+void search_update(team_t teams[], int numTeams);
+void display_club_statistics(const team_t teams[], int numTeams);
+void handle_error(const char* message);
+
+int main() {
+    team_t teams[NUM_TEAMS] = {0}; // initialise the array of 
+    int numTeams = 0;
+
+    display_menu();
+    return 0;
+}
+
+// Functions implementation
+void display_menu() {
+    // Display menu options and process user input
+}
+
+void enroll_club(team_t teams[], int* numTeams) {
+    // Add new team functionality
+}
+
+void add_player(team_t* team) {
+    // Add new player functionality
+}
+
+void search_update(team_t teams[], int numTeams) {
+    // Search and update player details
+}
+
+void display_club_statistics(const team_t teams[], int numTeams) {
+    // Display teams and player statistics
+}
+
+void handle_error(const char* message) {
+    printf("Error: %s\n", message);
+}
